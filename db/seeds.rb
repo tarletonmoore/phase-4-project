@@ -5,7 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-shakin = Bakery.create(name: "Shakin' Bakin'", address: "10 Cloverfield Lane, Dallas, Texas")
-son = Bakery.create(name: "Son Of A Bake", address: "22 Magnet lane, Charleton, South Carolina")
-bake = Bakery.create(name: "Bake Lives Here", address: "55 Wallace street, Atlanta, Georgia")
-simple = Bakery.create(name: "Simple Bake", address: "2458 Walnut drive, L.A., California")
+# shakin = Bakery.create(name: "Shakin' Bakin'", address: "10 Cloverfield Lane, Dallas, Texas")
+# son = Bakery.create(name: "Son Of A Bake", address: "22 Magnet lane, Charleton, South Carolina")
+# bake = Bakery.create(name: "Bake Lives Here", address: "55 Wallace street, Atlanta, Georgia")
+# simple = Bakery.create(name: "Simple Bake", address: "2458 Walnut drive, L.A., California")
+puts " Seeding spices..."
+User.delete_all
+BakedGood.delete_all
+Review.delete_all
+
+tarleton = User.create!(username: "tarleton", password: "tarleton8000")
+jacob = User.create!(username: "jacob", password: "tarleton8000")
+
+powerpuffs = BakedGood.create!(title: "Power Puffs", instructions: "test instructions for change")
+cake = BakedGood.create!(title: "Cake", instructions: "test instructions")
+
+powerpuffsreview = Review.create!(review: "Amazing", user_id: tarleton.id, baked_good_id: powerpuffs.id)
+cakereview = Review.create!(review: "Bangin Cake", user_id: jacob.id, baked_good_id: cake.id)
+
+puts " Done seeding!"

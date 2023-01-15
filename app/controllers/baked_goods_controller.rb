@@ -4,27 +4,27 @@ class BakedGoodsController < ApplicationController
 
 def index
 bakedgoods = BakedGood.all
-render json: bakedgoods, include: :user
+render json: bakedgoods
 
 end
 
 def show
     bakedgood = BakedGood.find_by(id: params[:id])
     if bakedgood
-    render json: bakedgood, include: :user
+    render json: bakedgood
     else
         render json: { error: "Baked Good not found" }, status: :not_found
     end
   end
 
     def create
-        # byebug
+        
         current_user = User.find_by(id: session[:user_id])
         if current_user
-            bakedgood = current_user.baked_goods.create(bakedgood_params)
+            bakedgood = BakedGood.create(bakedgood_params)
         
             if bakedgood.valid?
-                render json: bakedgood, include: :user, status: :created
+                render json: bakedgood, status: :created
             else
                 render json: { errors: [bakedgood.errors.full_messages] }, status: :unprocessable_entity
             end

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import BakedGood from "./BakedGood";
 // import { Link } from "react-router-dom";
 
-function BakedGoodList() {
+function BakedGoodList([users]) {
   const [bakedGoods, setBakedGoods] = useState([]);
-
+const individualUser = users.map((user) => user.username)
   useEffect(() => {
-    fetch("/bakedgoods")
+    fetch("/baked_goods")
       .then((r) => r.json())
       .then(setBakedGoods);
   }, []);

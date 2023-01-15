@@ -29,14 +29,14 @@ function NewBakedGood({ user }) {
     
     e.preventDefault();
     setIsLoading(true);
-    fetch("/bakedgoods", {
+    fetch("/baked_goods", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title,
-        instructions,
+        title: title,
+        instructions: instructions,
       
       }),
     }).then((r) => {

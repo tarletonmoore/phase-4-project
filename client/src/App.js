@@ -9,7 +9,7 @@ import SignUpForm from "./SignUpForm";
 
 function App() {
   const [user, setUser] = useState(null);
-
+const [users, setUsers] = useState([])
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -17,6 +17,9 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
+    fetch("/users")
+    .then((r) => r.json())
+    .then((users) => setUsers(users))
   }, []);
 
   if (!user) return <Login onLogin={setUser} />;
@@ -35,7 +38,7 @@ function App() {
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList />}>
+          <Route exact path="/bakedgoods" element={<BakedGoodList users={users}/>}>
             
           </Route>
         </Routes>
