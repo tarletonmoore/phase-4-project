@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
-  get "/bakedgoods", to: "bakedgoods#index"
-  post "/bakedgoods", to: "bakedgoods#create"
+  get "/bakeries", to: "bakeries#index"
+  get "bakeries", to: "bakeries#show"
+  get "/bakedgoods", to: "baked_goods#index"
+  get "bakedgoods", to: "baked_goods#show"
+  post "/bakedgoods", to: "baked_goods#create"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

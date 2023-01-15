@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import BakedGoodList from "./BakedGoodList";
+import Bakery from "./Bakery";
 import NewBakedGood from "./NewBakedGood";
 import SignUpForm from "./SignUpForm";
 
@@ -28,6 +29,9 @@ function App() {
           <Route exact path="/signup" element={<SignUpForm onLogin={setUser}/>}>
             
           </Route> 
+          <Route exact path="/bakeries" element={<Bakery />}>
+
+          </Route>
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>

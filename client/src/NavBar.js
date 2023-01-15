@@ -12,7 +12,14 @@ function NavBar({ user, setUser }) {
 
   return (
     <div>
-     
+     <NavLink
+     to="/bakedgoods">
+      Baked Goods
+     </NavLink>
+     <NavLink 
+     to="/bakeries">
+      Bakeries
+     </NavLink>
       <NavLink
          to="/new">
           New Baked Good

@@ -2,25 +2,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 function NewBakedGood({ user }) {
-  const [title, setTitle] = useState("Power Puffs");
-  const [instructions, setInstructions] = useState(`Here's how you make it.
+
+  const [title, setTitle] = useState(""
+    // "Power Puffs"
+    );
+  const [instructions, setInstructions] = useState(""
+//     `Here's how you make it.
   
-## Ingredients
+// ## Ingredients
 
-- 1c Sugar
-- 1c Spice
-- 3c Everything Nice
-- 1c Chemical X
+// - 1c Sugar
+// - 1c Spice
+// - 3c Everything Nice
+// - 1c Chemical X
 
-## Instructions
+// ## Instructions
 
-**Mix** Mix All Listed Ingredients. _Bake_ for 30 minutes.
-  `);
+// **Mix** Mix All Listed Ingredients. _Bake_ for 30 minutes.
+//   `
+  );
   // const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleSubmit(e) {
+    
     e.preventDefault();
     setIsLoading(true);
     fetch("/bakedgoods", {
@@ -36,7 +42,8 @@ function NewBakedGood({ user }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        navigate.push("/");}
+        navigate("/bakedgoods");}
+        // debugger
       // } else {
       //   r.json().then((err) => setErrors(err.errors));
       // }

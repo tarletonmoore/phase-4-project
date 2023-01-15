@@ -1,7 +1,8 @@
 class BakedGood < ApplicationRecord
     belongs_to :user
     # has_one :bakery, through: :user
-    belongs_to :bakery
+    # belongs_to :bakery
+    has_one :bakery, through: :user
     validates :title, presence: true
     validates :instructions, length: {minimum: 50}
 end
