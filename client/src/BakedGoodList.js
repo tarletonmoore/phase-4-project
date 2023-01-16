@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import BakedGood from "./BakedGood";
 // import { Link } from "react-router-dom";
 
-function BakedGoodList([users]) {
+function BakedGoodList() {
   const [bakedGoods, setBakedGoods] = useState([]);
-const individualUser = users.map((user) => user.username)
+// const individualUser = users.map((user) => user.username)
   useEffect(() => {
     fetch("/baked_goods")
       .then((r) => r.json())
@@ -26,8 +26,11 @@ const individualUser = users.map((user) => user.username)
     <div>
       {bakedGoods.length > 0 ? (
         bakedGoods.map((bakedgood) => (
-          <BakedGood key={bakedgood.id} bakedGoods={bakedGoods} onUpdateBakedGood={handleUpdateBakedGood}>
-            <div>
+          <BakedGood key={bakedgood.id} 
+          bakedGoods={bakedGoods}
+          //  bakedgood={bakedgood} 
+           onUpdateBakedGood={handleUpdateBakedGood} />
+            /* <div>
              <h2>{bakedgood.title}</h2>
               <p>
                 
@@ -35,7 +38,7 @@ const individualUser = users.map((user) => user.username)
               </p>
              <p> {bakedgood.instructions}</p>
             </div>
-          </BakedGood>
+          </BakedGood> */
         ))
       ) : (
         <>

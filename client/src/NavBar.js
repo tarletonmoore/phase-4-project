@@ -17,8 +17,8 @@ function NavBar({ user, setUser }) {
       Baked Goods
      </NavLink>
      <NavLink 
-     to="/bakeries">
-      Bakeries
+     to="/reviews">
+      Reviews
      </NavLink>
       <NavLink
          to="/new">

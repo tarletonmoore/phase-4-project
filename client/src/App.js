@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import BakedGoodList from "./BakedGoodList";
-import Bakery from "./Bakery";
+import Review from "./Review";
 import NewBakedGood from "./NewBakedGood";
 import SignUpForm from "./SignUpForm";
 
 function App() {
   const [user, setUser] = useState(null);
-const [users, setUsers] = useState([])
+// const [users, setUsers] = useState([])
+// const [bakedGoods, setBakedGoods] = useState("")
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -17,9 +18,9 @@ const [users, setUsers] = useState([])
         r.json().then((user) => setUser(user));
       }
     });
-    fetch("/users")
-    .then((r) => r.json())
-    .then((users) => setUsers(users))
+    // fetch("/users")
+    // .then((r) => r.json())
+    // .then((users) => setUsers(users))
   }, []);
 
   if (!user) return <Login onLogin={setUser} />;
@@ -32,13 +33,15 @@ const [users, setUsers] = useState([])
           <Route exact path="/signup" element={<SignUpForm onLogin={setUser}/>}>
             
           </Route> 
-          <Route exact path="/bakeries" element={<Bakery />}>
+          <Route exact path="/reviews" element={<Review />}>
 
           </Route>
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList users={users}/>}>
+          <Route exact path="/bakedgoods" element={<BakedGoodList 
+          // users={users}
+          />}>
             
           </Route>
         </Routes>

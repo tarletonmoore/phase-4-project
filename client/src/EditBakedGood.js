@@ -8,7 +8,7 @@ function EditGame({ onUpdateBakedGood, id }) {
     function handleFormSubmit(e) {
         e.preventDefault();
 
-        fetch(`/bakedgoods/${id}`, {
+        fetch(`/baked_goods/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

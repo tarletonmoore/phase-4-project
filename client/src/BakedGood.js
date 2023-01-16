@@ -3,7 +3,7 @@ import EditBakedGood from "./EditBakedGood"
 
 function BakedGood([bakedGoods, onUpdateBakedGood]) {
 const {id, title, instructions} = bakedGoods
-
+debugger
     return (
 <div>
 <p>Baked Good: {bakedGoods.title}</p>
