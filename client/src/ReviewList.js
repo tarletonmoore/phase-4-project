@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Review from "./Review";
 
-function ReviewList({bakedgood}) {
+function ReviewList({bakedgood, user}) {
 
     const [reviews, setReviews] = useState([]);
 
@@ -11,15 +11,23 @@ function ReviewList({bakedgood}) {
         .then(setReviews);
     }, []);
   
+    function handleAddReview(newReview) {
+
+        setReviews([...reviews, newReview]);
+      }
+
     return (
       <div>
         {reviews.length > 0 ? (
           reviews.map((review) => {
             if (review.baked_good_id === bakedgood.id) {
-            return <Review key={review.id} 
+                return <Review key={review.id} 
             // bakedGoods={bakedGoods}
+            handleAddReview={handleAddReview}
              review={review} 
-             bakedgood={bakedgood}/>
+             bakedgood={bakedgood}
+             user={user}
+             />
             //   <div>
             //    <h2>{review.review}</h2>
             //     <p>{review.user}</p>

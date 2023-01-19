@@ -16,10 +16,13 @@ function NavBar({ user, setUser }) {
      to="/bakedgoods">
       Baked Goods
      </NavLink>
-     <NavLink 
+     {/* <NavLink to="me">
+      Profile
+     </NavLink> */}
+     {/* <NavLink 
      to="/reviews">
       Reviews
-     </NavLink>
+     </NavLink> */}
       <NavLink
          to="/new">
           New Baked Good

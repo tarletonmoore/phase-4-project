@@ -1,11 +1,12 @@
 import React from "react";
-import EditBakedGood from "./EditBakedGood"
+// import EditBakedGood from "./EditBakedGood"
 import ReviewList from "./ReviewList";
+// import NewReview from "./NewReview";
 
 // function GameList({ games, onDeleteGame, onUpdateGame }) {
 
-function BakedGood({bakedgood, onUpdateBakedGood}) {
-const {id, title, instructions} = bakedgood
+function BakedGood({bakedgood, user}) {
+// const {id, title, instructions} = bakedgood
 // console.log(bakedgood)
 // console.log(bakedgood.reviews.review)
     return (
@@ -16,13 +17,14 @@ const {id, title, instructions} = bakedgood
             {/* <p>by: {bakedgood.user.username}</p> */}
             
             {/* <button onClick={handleDeleteClick}>Delete</button> */}
-<ReviewList bakedgood={bakedgood}/>
-            <EditBakedGood
+<ReviewList bakedgood={bakedgood} user={user}/>
+{/* <NewReview user={user}/> */}
+            {/* <EditBakedGood
                 id={id}
                 title={title}
                 instructions={instructions}
                 onUpdateBakedGood={onUpdateBakedGood}
-            />
+            /> */}
 
 
 </div>

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import React from "react";
+import NewReview from "./NewReview";
 
-
-function Review({review, bakedgood}) {
+function Review({review, bakedgood, user, handleAddReview}) {
 //   const [reviews, setReviews] = useState([]);
 
 //   useEffect(() => {
@@ -17,7 +18,9 @@ function Review({review, bakedgood}) {
     //     reviews.map((review) => (
             <div>
              <h2>{review.review}</h2>
-              {/* <p>{review.user.username}</p> */}
+              <p>{review.username}</p>
+              <NewReview user={user} handleAddReview={handleAddReview}/>
+
              {/* <p> {review.baked_good}</p> */}
             </div>
     //         <Review key={review.id} 

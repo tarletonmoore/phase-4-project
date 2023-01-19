@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BakedGood from "./BakedGood";
 // import { Link } from "react-router-dom";
 
-function BakedGoodList() {
+function BakedGoodList({user}) {
   const [bakedGoods, setBakedGoods] = useState([]);
 // const individualUser = users.map((user) => user.username)
   useEffect(() => {
@@ -11,17 +11,17 @@ function BakedGoodList() {
       .then(setBakedGoods);
   }, []);
 
-  function handleUpdateBakedGood(updatedBakedGoodObj) {
-    const updatedBakedGoods = bakedGoods.map((bakedgood) => {
-      if (bakedgood.id === updatedBakedGoodObj.id) {
-        return updatedBakedGoodObj;
-      } else {
-        return bakedgood;
-      }
-    });
-    setBakedGoods(updatedBakedGoods);
-  }
-  
+  // function handleUpdateBakedGood(updatedBakedGoodObj) {
+  //   const updatedBakedGoods = bakedGoods.map((bakedgood) => {
+  //     if (bakedgood.id === updatedBakedGoodObj.id) {
+  //       return updatedBakedGoodObj;
+  //     } else {
+  //       return bakedgood;
+  //     }
+  //   });
+  //   setBakedGoods(updatedBakedGoods);
+  // }
+ 
 
   return (
     <div>
@@ -32,7 +32,8 @@ function BakedGoodList() {
           <BakedGood key={bakedgood.id} 
           // bakedGoods={bakedGoods}
            bakedgood={bakedgood} 
-           onUpdateBakedGood={handleUpdateBakedGood} 
+           user={user}
+          //  onUpdateBakedGood={handleUpdateBakedGood} 
            />
              /* <div>
              <h2>{bakedgood.title}</h2>

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import BakedGoodList from "./BakedGoodList";
-import ReviewList from "./ReviewList";
+// import ReviewList from "./ReviewList";
 import NewBakedGood from "./NewBakedGood";
 import SignUpForm from "./SignUpForm";
 
@@ -30,16 +30,19 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
+          {/* <Route exact path="/me" element={<User />}>
+            
+          </Route> */}
           <Route exact path="/signup" element={<SignUpForm onLogin={setUser}/>}>
             
           </Route> 
-          <Route exact path="/reviews" element={<ReviewList />}>
+          {/* <Route exact path="/reviews" element={<ReviewList />}> 
 
-          </Route>
+          </Route>  */}
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList 
+          <Route exact path="/bakedgoods" element={<BakedGoodList user={user}
           // users={users}
           />}>
             

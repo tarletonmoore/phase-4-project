@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 
-function EditGame({ onUpdateBakedGood, id }) {
+// function EditGame({ onUpdateBakedGood, id }) {
 
-    const [bakedGoodTitle, setBakedGoodTitle] = useState("");
+//     const [bakedGoodTitle, setBakedGoodTitle] = useState("");
 
-    function handleFormSubmit(e) {
-        e.preventDefault();
+//     function handleFormSubmit(e) {
+//         e.preventDefault();
 
-        fetch(`/baked_goods/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                title: bakedGoodTitle,
-            }),
-        })
-            .then((r) => r.json())
-            .then((updatedTitle) => onUpdateBakedGood(updatedTitle));
-    }
+//         fetch(`/baked_goods/${id}`, {
+//             method: "PATCH",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 title: bakedGoodTitle,
+//             }),
+//         })
+//             .then((r) => r.json())
+//             .then((updatedTitle) => onUpdateBakedGood(updatedTitle));
+//     }
 
-    return (
-        <form onSubmit={handleFormSubmit}>
-            <input
-                type="text"
-                name="title"
-                value={bakedGoodTitle}
-                onChange={(e) => setBakedGoodTitle(e.target.value)}
-            />
-            <input type="submit" value="Save" />
-        </form>
-    );
-
-
-
+//     return (
+//         <form onSubmit={handleFormSubmit}>
+//             <input
+//                 type="text"
+//                 name="title"
+//                 value={bakedGoodTitle}
+//                 onChange={(e) => setBakedGoodTitle(e.target.value)}
+//             />
+//             <input type="submit" value="Save" />
+            {/* <button onClick={handleFormSubmit}>Change Title</button> */}
+//         </form>
+//     );
 
 
 
-}
 
-export default EditGame
+
+
+// }
+
+// export default EditGame
