@@ -10,7 +10,7 @@ function Review({review, bakedgood, user, handleAddReview}) {
 //       .then((r) => r.json())
 //       .then(setReviews);
 //   }, []);
-  console.log(review)
+//   console.log(review)
 
   return (
     // <div>

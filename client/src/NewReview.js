@@ -54,7 +54,7 @@ function handleReviewSubmit(e) {
         },
         body: JSON.stringify(
             {
-                review: addReview.review,
+                review: addReview.review
                 // baked_good_id: addReview.baked_good_id
                 // user_id: addReview.user_id
 
