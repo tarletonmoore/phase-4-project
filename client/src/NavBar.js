@@ -14,19 +14,20 @@ function NavBar({ user, setUser }) {
     <div>
      <NavLink
      to="/bakedgoods">
-      Baked Goods
+     <button> Baked Goods</button>
      </NavLink>
-     <NavLink to="me">
-      Profile
-     </NavLink>
+     
      {/* <NavLink 
      to="/reviews">
       Reviews
      </NavLink> */}
       <NavLink
          to="/new">
-          New Baked Good
+         <button> New Baked Good</button>
         </NavLink>
+        <NavLink to="me">
+      <button>Profile</button>
+     </NavLink>
         <NavLink>
         <button onClick={handleLogoutClick}>
           Logout

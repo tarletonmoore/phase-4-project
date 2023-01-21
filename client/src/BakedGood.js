@@ -8,7 +8,7 @@ import ReviewList from "./ReviewList";
 function BakedGood({bakedgood, user}) {
 // const {id, title, instructions} = bakedgood
 // console.log(bakedgood)
-// console.log(bakedgood.reviews.review)
+console.log(bakedgood.reviews)
     return (
 <div>
 <h2>Baked Good: {bakedgood.title}</h2>

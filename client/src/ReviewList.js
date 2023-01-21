@@ -10,7 +10,7 @@ function ReviewList({bakedgood, user}) {
         .then((r) => r.json())
         .then(setReviews);
     }, []);
-  console.log(bakedgood.reviews)
+//   console.log(bakedgood.reviews)
     function handleAddReview(newReview) {
 
         setReviews([...reviews, newReview]);
@@ -44,7 +44,9 @@ function ReviewList({bakedgood, user}) {
             // }
              
              
-            })
+            }
+        // }
+            )
             
         ) : (
           <>
