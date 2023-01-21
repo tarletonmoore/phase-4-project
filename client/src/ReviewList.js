@@ -10,7 +10,7 @@ function ReviewList({bakedgood, user}) {
         .then((r) => r.json())
         .then(setReviews);
     }, []);
-  
+  console.log(bakedgood.reviews)
     function handleAddReview(newReview) {
 
         setReviews([...reviews, newReview]);
@@ -20,7 +20,7 @@ function ReviewList({bakedgood, user}) {
       <div>
         {reviews.length > 0 ? (
           reviews.map((review) => {
-            if (review.baked_good_id === bakedgood.id) {
+            // if (review.baked_good_id === bakedgood.id) {
                 return <Review key={review.id} 
             // bakedGoods={bakedGoods}
             handleAddReview={handleAddReview}
@@ -28,6 +28,7 @@ function ReviewList({bakedgood, user}) {
              bakedgood={bakedgood}
              user={user}
              />
+
             //   <div>
             //    <h2>{review.review}</h2>
             //     <p>{review.user}</p>
@@ -39,10 +40,12 @@ function ReviewList({bakedgood, user}) {
             //  bakedgood={bakedgood}
           //    onUpdateBakedGood={handleUpdateBakedGood} 
             //  />
-            }
+            
+            // }
              
              
             })
+            
         ) : (
           <>
             <h2>No Reviews Found</h2>

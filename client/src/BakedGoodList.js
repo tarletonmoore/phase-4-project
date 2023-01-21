@@ -29,10 +29,13 @@ function BakedGoodList({user}) {
         bakedGoods.map((bakedgood) => 
         // console.log(bakedgood))
         (
+          // {
+          //             if (review.baked_good_id === bakedgood.id) {
           <BakedGood key={bakedgood.id} 
           // bakedGoods={bakedGoods}
            bakedgood={bakedgood} 
            user={user}
+          
           //  onUpdateBakedGood={handleUpdateBakedGood} 
            />
              /* <div>
@@ -44,7 +47,8 @@ function BakedGoodList({user}) {
              <p> {bakedgood.instructions}</p>
             </div>
           </BakedGood>  */
-        ))
+        )
+                      )
       ) : (
         <>
           <h2>No Baked Goods Found</h2>

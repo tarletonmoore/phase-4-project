@@ -11,13 +11,14 @@ function BakedGood({bakedgood, user}) {
 // console.log(bakedgood.reviews.review)
     return (
 <div>
-<p>Baked Good: {bakedgood.title}</p>
+<h2>Baked Good: {bakedgood.title}</h2>
             <p>instructions: {bakedgood.instructions}</p>
             {/* <p>Reviews: {bakedgood.reviews.review}</p> */}
             {/* <p>by: {bakedgood.user.username}</p> */}
             
             {/* <button onClick={handleDeleteClick}>Delete</button> */}
-<ReviewList bakedgood={bakedgood} user={user}/>
+<ReviewList bakedgood={bakedgood} user={user} />
+
 {/* <NewReview user={user}/> */}
             {/* <EditBakedGood
                 id={id}

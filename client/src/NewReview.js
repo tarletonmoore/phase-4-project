@@ -1,10 +1,11 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router";
 
-function NewReview({ user, handleAddReview }) {
+function NewReview({ user, handleAddReview, id, bakedgood }) {
 
   const [addReview, setAddReview] = useState({
-    review: ""
+    review: "",
+    // baked_good_id: "" 
   }
     
     );
@@ -54,6 +55,7 @@ function handleReviewSubmit(e) {
         body: JSON.stringify(
             {
                 review: addReview.review,
+                // baked_good_id: addReview.baked_good_id
                 // user_id: addReview.user_id
 
             }
@@ -65,10 +67,12 @@ function handleReviewSubmit(e) {
             setAddReview(
                 {
                     review: "",
+                    // baked_good_id: ""
                     // user_id: ""
                 }
             );
         });
+        console.log(addReview.review)
 
 }
 
@@ -77,7 +81,7 @@ function handleReviewSubmit(e) {
       <div>
         <p>Add Review</p>
         <form onSubmit={handleReviewSubmit}>
-          <section>
+          {/* <section> */}
             <label htmlFor="review">Review</label>
             <input
               type="text"
@@ -86,8 +90,15 @@ function handleReviewSubmit(e) {
             //   onChange={(e) => setAddReview(e.target.value)}
             onChange={handleChange}
             />
-          </section>
-          
+          {/* </section> */}
+          {/* <label>Baked Good ID</label>
+          <input
+          type="text"
+          name="baked_good_id"
+          value={addReview.baked_good_id}
+          onChange={handleChange}
+          /> */}
+
           {/* <section>
             <button type="submit">
               {isLoading ? "Loading..." : "Submit Review"}

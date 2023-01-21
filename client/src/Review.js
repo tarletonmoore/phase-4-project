@@ -17,9 +17,9 @@ function Review({review, bakedgood, user, handleAddReview}) {
     //   {reviews.length > 0 ? (
     //     reviews.map((review) => (
             <div>
-             <h2>{review.review}</h2>
+             <p>{review.review}</p>
               <p>{review.username}</p>
-              <NewReview user={user} handleAddReview={handleAddReview}/>
+              <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/>
 
              {/* <p> {review.baked_good}</p> */}
             </div>
