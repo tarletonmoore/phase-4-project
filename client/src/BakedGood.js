@@ -1,13 +1,27 @@
 import React from "react";
+// import { useEffect, useState } from "react";
 // import EditBakedGood from "./EditBakedGood"
 import ReviewList from "./ReviewList";
 // import NewReview from "./NewReview";
 
-// function GameList({ games, onDeleteGame, onUpdateGame }) {
 
-function BakedGood({bakedgood, user}) {
+function BakedGood({bakedgood, user, reviews, setReviews}) {
 // const {id, title, instructions} = bakedgood
 // console.log(bakedgood)
+
+// const [reviews, setReviews] = useState([]);
+
+// useEffect(() => {
+//   fetch("/reviews")
+//     .then((r) => r.json())
+//     .then(setReviews);
+// }, []);
+
+// function handleAddReview(newReview) {
+
+//     setReviews([...reviews, newReview]);
+//   }
+
 console.log(bakedgood.reviews)
     return (
 <div>
@@ -17,7 +31,9 @@ console.log(bakedgood.reviews)
             {/* <p>by: {bakedgood.user.username}</p> */}
             
             {/* <button onClick={handleDeleteClick}>Delete</button> */}
-<ReviewList bakedgood={bakedgood} user={user} />
+<ReviewList bakedgood={bakedgood} user={user} reviews={reviews} setReviews={setReviews}/>
+{/* <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/> */}
+
 
 {/* <NewReview user={user}/> */}
             {/* <EditBakedGood

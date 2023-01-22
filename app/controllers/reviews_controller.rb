@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     def index
         reviews = Review.all
-        render json: reviews, include: :baked_good
+        render json: reviews, include: :baked_good 
         # :user
         
         end
@@ -12,15 +12,18 @@ class ReviewsController < ApplicationController
             review = Review.find_by(id: params[:id])
             if review
             render json: review, include: :baked_good
-            # :user
+# :user
             else
                 render json: { error: "Review not found" }, status: :not_found
             end
           end
 
           def create
+            
             current_user = User.find_by(id: session[:user_id])
+            # current_baked_good = BakedGood.find_by(id: params[:baked_good_id])
         if current_user
+        # if current_baked_good
             review = Review.create(review_params)
         
             if review.valid?
@@ -40,6 +43,6 @@ class ReviewsController < ApplicationController
       end
     
     def review_params
-        params.permit(:review)
+        params.permit(:review, :baked_good_id, :user_id)
       end
 end

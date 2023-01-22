@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BakedGood from "./BakedGood";
 // import { Link } from "react-router-dom";
 
-function BakedGoodList({user}) {
+function BakedGoodList({user, reviews, setReviews}) {
   const [bakedGoods, setBakedGoods] = useState([]);
 // const individualUser = users.map((user) => user.username)
   useEffect(() => {
@@ -35,7 +35,8 @@ function BakedGoodList({user}) {
           // bakedGoods={bakedGoods}
            bakedgood={bakedgood} 
            user={user}
-          
+          reviews={reviews}
+          setReviews={setReviews}
           //  onUpdateBakedGood={handleUpdateBakedGood} 
            />
              /* <div>

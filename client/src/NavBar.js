@@ -17,10 +17,10 @@ function NavBar({ user, setUser }) {
      <button> Baked Goods</button>
      </NavLink>
      
-     {/* <NavLink 
+     <NavLink 
      to="/reviews">
       Reviews
-     </NavLink> */}
+     </NavLink>
       <NavLink
          to="/new">
          <button> New Baked Good</button>

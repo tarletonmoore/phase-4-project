@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 import React from "react";
-import NewReview from "./NewReview";
+// import NewReview from "./NewReview";
 
 function Review({review, bakedgood, user, handleAddReview}) {
 //   const [reviews, setReviews] = useState([]);
@@ -19,7 +19,7 @@ function Review({review, bakedgood, user, handleAddReview}) {
             <div>
              <p>{review.review}</p>
               <p>{review.username}</p>
-              <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/>
+              {/* <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/> */}
 
              {/* <p> {review.baked_good}</p> */}
             </div>

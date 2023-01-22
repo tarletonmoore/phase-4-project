@@ -6,12 +6,12 @@ import BakedGoodList from "./BakedGoodList";
 // import ReviewList from "./ReviewList";
 import NewBakedGood from "./NewBakedGood";
 import SignUpForm from "./SignUpForm";
-// import NewReview from "./NewReview";
+import NewReview from "./NewReview";
 import User from "./User";
 
 function App() {
   const [user, setUser] = useState(null);
-  // const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
 // const [users, setUsers] = useState([])
 // const [bakedGoods, setBakedGoods] = useState("")
@@ -53,18 +53,21 @@ function App() {
   //   });
   // }
 
+
+  useEffect(() => {
+    fetch("/reviews")
+      .then((r) => r.json())
+      .then(setReviews);
+  }, []);
+
   if (!user) return <Login onLogin={setUser} />;
 
-  // useEffect(() => {
-  //   fetch("/reviews")
-  //     .then((r) => r.json())
-  //     .then(setReviews);
-  // }, []);
 
-  // function handleAddReview(newReview) {
 
-  //     setReviews([...reviews, newReview]);
-  //   }
+  function handleAddReview(newReview) {
+
+      setReviews([...reviews, newReview]);
+    }
 
   return (
     <>
@@ -83,14 +86,14 @@ function App() {
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList user={user}
+          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews}
           // users={users}
           />}>
             
           </Route>
-          {/* <Route exact path="reviews" element={<NewReview handleAddReview={handleAddReview}/>}>
+          <Route exact path="reviews" element={<NewReview handleAddReview={handleAddReview} user={user}/>}>
 
-          </Route> */}
+          </Route>
         </Routes>
       </main>
     </>

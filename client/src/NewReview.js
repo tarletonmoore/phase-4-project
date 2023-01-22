@@ -5,7 +5,9 @@ function NewReview({ user, handleAddReview, id, bakedgood }) {
 
   const [addReview, setAddReview] = useState({
     review: "",
-    // baked_good_id: "" 
+    baked_good_id: "", 
+    user_id: ""
+    // user_id: user.id
   }
     
     );
@@ -54,9 +56,10 @@ function handleReviewSubmit(e) {
         },
         body: JSON.stringify(
             {
-                review: addReview.review
-                // baked_good_id: addReview.baked_good_id
+                review: addReview.review,
+                baked_good_id: addReview.baked_good_id,
                 // user_id: addReview.user_id
+                user_id: user.id
 
             }
         ),
@@ -67,8 +70,9 @@ function handleReviewSubmit(e) {
             setAddReview(
                 {
                     review: "",
-                    // baked_good_id: ""
-                    // user_id: ""
+                    baked_good_id: "",
+                    user_id: ""
+                    // user_id: user.id
                 }
             );
         });
@@ -91,13 +95,13 @@ function handleReviewSubmit(e) {
             onChange={handleChange}
             />
           {/* </section> */}
-          {/* <label>Baked Good ID</label>
+          <label>Baked Good ID</label>
           <input
           type="text"
           name="baked_good_id"
           value={addReview.baked_good_id}
           onChange={handleChange}
-          /> */}
+          />
 
           {/* <section>
             <button type="submit">

@@ -1,29 +1,31 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import React from "react";
 import Review from "./Review";
 
-function ReviewList({bakedgood, user}) {
+function ReviewList({bakedgood, user, reviews, setReviews}) {
 
-    const [reviews, setReviews] = useState([]);
+    // const [reviews, setReviews] = useState([]);
 
-    useEffect(() => {
-      fetch("/reviews")
-        .then((r) => r.json())
-        .then(setReviews);
-    }, []);
+//     useEffect(() => {
+//       fetch("/reviews")
+//         .then((r) => r.json())
+//         .then(setReviews);
+//     }, []);
 //   console.log(bakedgood.reviews)
-    function handleAddReview(newReview) {
+//     function handleAddReview(newReview) {
 
-        setReviews([...reviews, newReview]);
-      }
+//         setReviews([...reviews, newReview]);
+//       }
 
     return (
       <div>
-        {reviews.length > 0 ? (
+        {
+        // reviews.length > 0 ? (
           reviews.map((review) => {
-            // if (review.baked_good_id === bakedgood.id) {
+            if (review.baked_good_id === bakedgood.id) {
                 return <Review key={review.id} 
             // bakedGoods={bakedGoods}
-            handleAddReview={handleAddReview}
+            // handleAddReview={handleAddReview}
              review={review} 
              bakedgood={bakedgood}
              user={user}
@@ -41,19 +43,20 @@ function ReviewList({bakedgood, user}) {
           //    onUpdateBakedGood={handleUpdateBakedGood} 
             //  />
             
-            // }
+            }
              
              
             }
         // }
             )
             
-        ) : (
-          <>
-            <h2>No Reviews Found</h2>
+        // ) : (
+        //   <>
+        //     <h2>No Reviews Found</h2>
            
-          </>
-        )}
+        //   </>
+        // )
+    }
         
       </div>
     );
