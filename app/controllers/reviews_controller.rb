@@ -36,7 +36,28 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def update
+         current_user = User.find_by(id: session[:user_id])
+         if current_user
+            review = find_review
+        review.update(review_params)
+        render json: review
+         else
+            render json: {errors: ["Not Authorized"]}, status: :unauthorized
+      end
+    end
+    
+    #   def destroy
+    #     review = find_review
+    #     review.destroy
+    #     head :no_content
+    #   end
+
     private
+
+    def find_review
+        Review.find(params[:id])
+        end
 
     def render_unprocessable_entity_response(invalid)
         render json: { errors: [invalid.record.errors] }, status: :unprocessable_entity

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function EditReview({ onUpdateReview, id, review }) {
+function EditReview({ onUpdateReview, id, review, user }) {
 
     const [changeReview, setChangeReview] = useState("");
 
@@ -17,8 +17,10 @@ function EditReview({ onUpdateReview, id, review }) {
                 review: changeReview,
             }),
         })
+        // if (review.user_id === user.id) {
             .then((r) => r.json())
             .then((updatedReview) => onUpdateReview(updatedReview));
+        
     }
 
     return (

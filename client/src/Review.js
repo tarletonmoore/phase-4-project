@@ -21,7 +21,7 @@ const {id} = review
              <p>{review.review}</p>
               <p>{review.username}</p>
               {/* <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/> */}
-<EditReview id={id} review={review} onUpdateReview={onUpdateReview}/>
+<EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>
              {/* <p> {review.baked_good}</p> */}
             </div>
     //         <Review key={review.id} 
