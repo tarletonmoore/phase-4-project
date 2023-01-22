@@ -62,7 +62,21 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
+  // function handleDeleteReview(id) {
+  //   const updatedReviews = reviews.filter((review) => review.id !== id);
+  //   setReviews(updatedReviews);
+  // }
 
+  function handleUpdateReview(updatedReviewObj) {
+    const updatedReviews = reviews.map((review) => {
+      if (review.id === updatedReviewObj.id) {
+        return updatedReviewObj;
+      } else {
+        return review;
+      }
+    });
+    setReviews(updatedReviews);
+  }
 
   function handleAddReview(newReview) {
 
@@ -86,7 +100,7 @@ function App() {
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews}
+          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview}
           // users={users}
           />}>
             

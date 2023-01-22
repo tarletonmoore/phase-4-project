@@ -5,7 +5,7 @@ import ReviewList from "./ReviewList";
 // import NewReview from "./NewReview";
 
 
-function BakedGood({bakedgood, user, reviews, setReviews}) {
+function BakedGood({bakedgood, user, reviews, setReviews, onUpdateReview}) {
 // const {id, title, instructions} = bakedgood
 // console.log(bakedgood)
 
@@ -31,7 +31,7 @@ console.log(bakedgood.reviews)
             {/* <p>by: {bakedgood.user.username}</p> */}
             
             {/* <button onClick={handleDeleteClick}>Delete</button> */}
-<ReviewList bakedgood={bakedgood} user={user} reviews={reviews} setReviews={setReviews}/>
+<ReviewList bakedgood={bakedgood} user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={onUpdateReview}/>
 {/* <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/> */}
 
 
