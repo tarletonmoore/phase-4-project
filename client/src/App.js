@@ -62,10 +62,10 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
-  // function handleDeleteReview(id) {
-  //   const updatedReviews = reviews.filter((review) => review.id !== id);
-  //   setReviews(updatedReviews);
-  // }
+  function handleDeleteReview(id) {
+    const updatedReviews = reviews.filter((review) => review.id !== id);
+    setReviews(updatedReviews);
+  }
 
   function handleUpdateReview(updatedReviewObj) {
     const updatedReviews = reviews.map((review) => {
@@ -100,7 +100,7 @@ function App() {
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview}
+          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview}
           // users={users}
           />}>
             

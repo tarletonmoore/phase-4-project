@@ -52,11 +52,16 @@ class ReviewsController < ApplicationController
       end
     end
     
-    #   def destroy
-    #     review = find_review
-    #     review.destroy
-    #     head :no_content
-    #   end
+      def destroy
+        current_user = User.find_by(id: session[:user_id])
+        if current_user
+        review = find_review
+        review.destroy
+        head :no_content
+        else
+            render json: {errors: ["Not Authorized"]}, status: :unauthorized
+        end
+      end
 
     private
 

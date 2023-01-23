@@ -2,7 +2,7 @@
 import React from "react";
 import Review from "./Review";
 
-function ReviewList({bakedgood, user, reviews, setReviews, onUpdateReview}) {
+function ReviewList({bakedgood, user, reviews, setReviews, onUpdateReview, onDeleteReview}) {
 
     // const [reviews, setReviews] = useState([]);
 
@@ -30,6 +30,7 @@ function ReviewList({bakedgood, user, reviews, setReviews, onUpdateReview}) {
              bakedgood={bakedgood}
              user={user}
              onUpdateReview={onUpdateReview}
+             onDeleteReview={onDeleteReview}
              />
 
             //   <div>
