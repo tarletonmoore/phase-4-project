@@ -12,6 +12,10 @@ const {id} = review
 //       .then(setReviews);
 //   }, []);
 //   console.log(review)
+// function editOwn() {if (review.user_id === user.id) {
+//     return <EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>}
+     
+//     }
 
   return (
     // <div>
@@ -21,6 +25,7 @@ const {id} = review
              <p>{review.review}</p>
               <p>{review.username}</p>
               {/* <NewReview user={user} id={bakedgood.id} handleAddReview={handleAddReview} bakedgood={bakedgood}/> */}
+       
 <EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>
              {/* <p> {review.baked_good}</p> */}
             </div>

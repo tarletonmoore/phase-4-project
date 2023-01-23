@@ -15,11 +15,14 @@ function EditReview({ onUpdateReview, id, review, user }) {
             },
             body: JSON.stringify({
                 review: changeReview,
+                user_id: user.id
             }),
         })
-        // if (review.user_id === user.id) {
+        // {if (review.user_id === user.id) {
             .then((r) => r.json())
-            .then((updatedReview) => onUpdateReview(updatedReview));
+            .then((updatedReview) => 
+            // {if (review.user_id === user.id) {
+                onUpdateReview(updatedReview));
         
     }
 
@@ -29,7 +32,11 @@ function EditReview({ onUpdateReview, id, review, user }) {
                 type="text"
                 name="review"
                  value={changeReview}
-                 onChange={(e) => setChangeReview(e.target.value)}
+                 onChange={(e) => {if (review.user_id === user.id) {
+                    setChangeReview(e.target.value)}
+                
+                }
+                }
              />
              <input type="submit" value="Update" />
             {/* <button onClick={handleFormSubmit}>Change Title</button> */}

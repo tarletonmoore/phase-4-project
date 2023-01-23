@@ -19,7 +19,7 @@ function NavBar({ user, setUser }) {
      
      <NavLink 
      to="/reviews">
-      Reviews
+     <button> Reviews </button>
      </NavLink>
       <NavLink
          to="/new">

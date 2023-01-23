@@ -14,13 +14,18 @@ User.delete_all
 BakedGood.delete_all
 Review.delete_all
 
-tarleton = User.create!(username: "tarleton", password: "tarleton8000")
-jacob = User.create!(username: "jacob", password: "tarleton8000")
+tarleton = User.create!(username: "tarleton", password: "tarleton8000", bio: "Baker")
+jacob = User.create!(username: "jacob", password: "tarleton8000", bio: "Blogger")
+john = User.create!(username: "john", password: "tarleton8000", bio: "I have been baking for ten years")
+james = User.create!(username: "james", password: "tarleton8000", bio: "I bake for fun")
 
 powerpuffs = BakedGood.create!(title: "Power Puffs", instructions: "test instructions for change")
 cake = BakedGood.create!(title: "Cake", instructions: "test instructions")
 
 powerpuffsreview = Review.create!(review: "Amazing", user_id: tarleton.id, baked_good_id: powerpuffs.id)
+powerpuffsreview = Review.create!(review: "Wow, I can't Belive the flavor", user_id: jacob.id, baked_good_id: powerpuffs.id)
+
 cakereview = Review.create!(review: "Bangin Cake", user_id: jacob.id, baked_good_id: cake.id)
+cakereview = Review.create!(review: "Fantastic", user_id: john.id, baked_good_id: cake.id)
 
 puts " Done seeding!"

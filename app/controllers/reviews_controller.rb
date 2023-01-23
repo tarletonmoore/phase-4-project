@@ -37,8 +37,13 @@ class ReviewsController < ApplicationController
     end
 
     def update
+        
          current_user = User.find_by(id: session[:user_id])
-         if current_user
+        # current_baked_good = BakedGood.find_by(id: params[:baked_good_id])
+        # review = find_review
+
+        #  if current_user === review
+        if current_user
             review = find_review
         review.update(review_params)
         render json: review
@@ -56,7 +61,7 @@ class ReviewsController < ApplicationController
     private
 
     def find_review
-        Review.find(params[:id])
+        Review.find_by(user_id: params[:user_id])
         end
 
     def render_unprocessable_entity_response(invalid)
