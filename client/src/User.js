@@ -10,7 +10,6 @@ return (
     <div>
 <h2>Name: {user.username}</h2>
             <p>Bio: {user.bio}</p>
-            {/* <p>Reviews: {user.reviews.review}</p> */}
         
 </div>
 

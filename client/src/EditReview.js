@@ -18,10 +18,8 @@ function EditReview({ onUpdateReview, id, review, user }) {
                 user_id: user.id
             }),
         })
-        // {if (review.user_id === user.id) {
             .then((r) => r.json())
             .then((updatedReview) => 
-            // {if (review.user_id === user.id) {
                 onUpdateReview(updatedReview));
         
     }
@@ -39,7 +37,6 @@ function EditReview({ onUpdateReview, id, review, user }) {
                 }
              />
              <input type="submit" value="Update" />
-            {/* <button onClick={handleFormSubmit}>Change Title</button> */}
          </form>
      );
 

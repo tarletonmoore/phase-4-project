@@ -5,13 +5,11 @@ function SignUpForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [bio, setBio] = useState("");
-  // const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     
     e.preventDefault();
-    // setErrors([]);
     setIsLoading(true);
     fetch("/signup", {
       method: "POST",
@@ -23,15 +21,12 @@ function SignUpForm({ onLogin }) {
         password,
         password_confirmation: passwordConfirmation,
         bio,
-        // bakery_id,
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));}
-      // } else {
-      //   r.json().then((err) => setErrors(err.errors));
-      // }
+  
     });
   }
 
@@ -77,21 +72,11 @@ function SignUpForm({ onLogin }) {
           onChange={(e) => setBio(e.target.value)}
         />
       </section>
-      {/* <section>
-        <label htmlFor="bakery_id">Bakery</label>
-        <input
-        id="bakery_id"
-        value={bakery_id}
-        />
-      </section> */}
+      
       <section>
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       </section>
-      {/* <section>
-        {errors.map((err) => (
-          <Error key={err}>{err}</Error>
-        ))}
-      </section> */}
+     
     </form>
   );
 }
