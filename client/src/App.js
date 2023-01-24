@@ -54,10 +54,13 @@ function App() {
       setReviews([...reviews, newReview]);
     }
 
+
   return (
+  
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
+      
         <Routes>
           <Route exact path="/me" element={<User user={user} setUser={setUser}/>}>
             
