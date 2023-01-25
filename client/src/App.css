@@ -1,18 +1,21 @@
-.App {
+body {
   text-align: center;
   background-color: gray;
+  padding: 10px;
 }
 
-
+label {padding: 10px;}
+input{margin: 20px;
+padding: 5px;}
 .BakedGood {
   background-color: gray;
 }
-
+#title {margin-left: 40px;}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+button {margin: 10px;}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -27,7 +30,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: gray;
 }
 
 .App-link {
