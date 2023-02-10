@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   delete "/reviews", to: "reviews#destroy"
   resources :reviews
-  resources :users
+  # resources :users
   resources :baked_goods
   # get "/bakeries", to: "bakeries#index"
   # get "bakeries", to: "bakeries#show"

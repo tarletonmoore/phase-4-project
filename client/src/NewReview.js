@@ -5,6 +5,7 @@ function NewReview({ user, handleAddReview, id, bakedgood }) {
   const [addReview, setAddReview] = useState({
     review: "",
     baked_good_id: "", 
+    // baked_good_title: "",
     user_id: ""
   }
     
@@ -30,6 +31,7 @@ function handleReviewSubmit(e) {
             {
                 review: addReview.review,
                 baked_good_id: addReview.baked_good_id,
+                // baked_good_title: addReview.bakedgood.title,
                 user_id: user.id
 
             }
@@ -42,6 +44,7 @@ function handleReviewSubmit(e) {
                 {
                     review: "",
                     baked_good_id: "",
+                    // baked_good_title: "",
                     user_id: ""
                 }
             );
@@ -62,7 +65,7 @@ function handleReviewSubmit(e) {
               value={addReview.review}
             onChange={handleChange}
             />
-          <label>Baked Good ID</label>
+          <label>Baked Good Title</label>
           <input
           type="text"
           name="baked_good_id"

@@ -8,14 +8,14 @@ render json: bakedgoods, include: :reviews
 
 end
 
-def show
-    bakedgood = BakedGood.find_by(id: params[:id])
-    if bakedgood
-    render json: bakedgood, include: :reviews
-    else
-        render json: { error: "Baked Good not found" }, status: :not_found
-    end
-  end
+# def show
+#     bakedgood = BakedGood.find_by(id: params[:id])
+#     if bakedgood
+#     render json: bakedgood, include: :reviews
+#     else
+#         render json: { error: "Baked Good not found" }, status: :not_found
+#     end
+#   end
 
     def create
         

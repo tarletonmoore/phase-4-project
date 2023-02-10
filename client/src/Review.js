@@ -6,23 +6,31 @@ import EditReview from "./EditReview";
 function Review({review, bakedgood, user, handleAddReview, onUpdateReview, onDeleteReview}) {
 const {id} = review
 
-
 function handleDeleteClick() {
-
     fetch(`/reviews/${id}`, {
-        method: "DELETE",
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        onDeleteReview(id);
+      }
     });
-    if (review.user_id === user.id) {
-    onDeleteReview(id);
-    }
+  }
 
-}
+// function handleDeleteClick() {
 
+//     fetch(`/reviews/${id}`, {
+//         method: "DELETE",
+//     });
+//     if (review.user_id === user.id) {
+//     onDeleteReview(id);
+//     }
+
+// }
   return (
    
             <div>
-             <p>{review.review}</p>
-              <p>{review.username}</p>
+             <p>Review: {review.review} - {review.user.username}</p>
+            
        <button onClick={handleDeleteClick}>Delete</button>
 <EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>
             </div>

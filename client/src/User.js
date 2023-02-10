@@ -2,7 +2,6 @@ import React from "react";
 
 function User({user, setUser}) {
 
-console.log(user)
 
 
 

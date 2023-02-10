@@ -29,7 +29,7 @@ function NavBar({ user, setUser }) {
      <NavLink 
      to="/reviews"
      style={linkStyles}>
-     <button> Reviews </button>
+     <button> Add Review </button>
      </NavLink>
       <NavLink
          to="/new"
