@@ -21,7 +21,8 @@ end
         
         current_user = User.find_by(id: session[:user_id])
         if current_user
-            bakedgood = BakedGood.create(bakedgood_params)
+            # bakedgood = BakedGood.create(bakedgood_params)
+            bakedgood = current_user.baked_goods.create(bakedgood_params)
         
             if bakedgood.valid?
                 render json: bakedgood, status: :created

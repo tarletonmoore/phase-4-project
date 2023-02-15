@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import React from "react";
 import BakedGood from "./BakedGood";
 
-function BakedGoodList({user, reviews, setReviews, onUpdateReview, onDeleteReview}) {
-  const [bakedGoods, setBakedGoods] = useState([]);
-  useEffect(() => {
-    fetch("/baked_goods")
-      .then((r) => r.json())
-      .then(setBakedGoods);
-  }, []);
+function BakedGoodList({user, reviews, setReviews, onUpdateReview, onDeleteReview, bakedGoods, setBakedGoods}) {
+  // const [bakedGoods, setBakedGoods] = useState([]);
+  // useEffect(() => {
+  //   fetch("/baked_goods")
+  //     .then((r) => r.json())
+  //     .then(setBakedGoods);
+  // }, []);
 
 
  
@@ -24,6 +25,7 @@ function BakedGoodList({user, reviews, setReviews, onUpdateReview, onDeleteRevie
           setReviews={setReviews}
 onUpdateReview={onUpdateReview}
 onDeleteReview={onDeleteReview}
+// handleAddReview={handleAddReview}
            />
             
         )

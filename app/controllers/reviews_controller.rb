@@ -4,30 +4,39 @@ class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     def index
         reviews = Review.all
-        render json: reviews, include: :user 
+        render json: reviews, include: [:user, :baked_good] 
         # :user
         
         end
-        
-#         def show
-#             review = Review.find_by(id: params[:id])
-#             if review
-#             render json: review, include: :baked_good
-# # :user
-#             else
-#                 render json: { error: "Review not found" }, status: :not_found
-#             end
-#           end
+
+
+        def show
+            review = Review.find_by(id: params[:id])
+            if review
+            render json: review, include: :baked_good
+# :user
+            else
+                render json: { error: "Review not found" }, status: :not_found
+            end
+          end
 
           def create
-            
+
             current_user = User.find_by(id: session[:user_id])
             # current_baked_good = BakedGood.find_by(id: params[:baked_good_id])
+            # bakedgood = BakedGood.find_by(title: params[:title])
+
         if current_user
-        # if current_baked_good
-            review = current_user.reviews.create(review_params)
-        
+        # if bakedgood
+        # byebug
+        bakedgood= BakedGood.find_by(title: params[:title])
+
+            review = current_user.reviews.create(review: params[:review])
+            # review = current_user.reviews.create(review_params)
+
+            # review = bakedgood.reviews.create(review: params[:review])
             if review.valid?
+
                 render json: review, include: :baked_good, status: :created
             else
                 render json: { errors: [review.errors.full_messages] }, status: :unprocessable_entity
@@ -44,10 +53,10 @@ class ReviewsController < ApplicationController
         # review = find_review
 
         #  if current_user === review
-        if current_user
+        if current_user 
             review = current_user.reviews.find(params[:id])
         review.update(review_params)
-        render json: review
+        render json: review, include: :user
          else
             render json: {errors: ["Not Authorized"]}, status: :unauthorized
       end
@@ -76,6 +85,7 @@ class ReviewsController < ApplicationController
       end
     
     def review_params
+
         params.permit(:review, :baked_good_id)
       end
 end

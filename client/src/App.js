@@ -12,6 +12,7 @@ import User from "./User";
 function App() {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const [bakedGoods, setBakedGoods] = useState([]);
 
 
   useEffect(() => {
@@ -29,6 +30,12 @@ function App() {
     fetch("/reviews")
       .then((r) => r.json())
       .then(setReviews);
+  }, []);
+
+  useEffect(() => {
+    fetch("/baked_goods")
+      .then((r) => r.json())
+      .then(setBakedGoods);
   }, []);
 
   if (!user) return <Login onLogin={setUser} />;
@@ -73,11 +80,11 @@ function App() {
           <Route exact path="/new" element={<NewBakedGood user={user} />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview}
+          <Route exact path="/bakedgoods" element={<BakedGoodList bakedGoods={bakedGoods} setBakedGoods={setBakedGoods} user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview} handleAddReview={handleAddReview}
           />}>
             
           </Route>
-          <Route exact path="reviews" element={<NewReview handleAddReview={handleAddReview} user={user}/>}>
+          <Route exact path="/reviews" element={<NewReview handleAddReview={handleAddReview} user={user} bakedGoods={bakedGoods}/>}>
 
           </Route>
         </Routes>

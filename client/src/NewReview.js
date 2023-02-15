@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-function NewReview({ user, handleAddReview, id, bakedgood }) {
+function NewReview({ user, handleAddReview, bakedGoods }) {
 
   const [addReview, setAddReview] = useState({
     review: "",
-    baked_good_id: "", 
-    // baked_good_title: "",
-    user_id: ""
+    // baked_good_id: "", 
+    title: "",
+    // user_id: ""
   }
-    
     );
+
+    const [selectedOption, setSelectedOption] = useState();
+
 
   function handleChange(event) {
     setAddReview({
@@ -18,7 +20,18 @@ function NewReview({ user, handleAddReview, id, bakedgood }) {
     });
 }
 
+function getBakedGood() {
+    return bakedGoods.map((bakedgood) => {
+      return <option key={bakedgood.id} value={bakedgood.title}>{bakedgood.title} 
+             </option>;
+    });
+  }
+ 
+  function handleSelectChange(event) {
+    setSelectedOption(event.target.value);
+  }
 
+//   console.log(handleSelectChange)
 function handleReviewSubmit(e) {
     e.preventDefault()
 
@@ -30,9 +43,9 @@ function handleReviewSubmit(e) {
         body: JSON.stringify(
             {
                 review: addReview.review,
-                baked_good_id: addReview.baked_good_id,
-                // baked_good_title: addReview.bakedgood.title,
-                user_id: user.id
+                // baked_good_id: addReview.baked_good_id,
+                title: selectedOption,
+                // user_id: user.id
 
             }
         ),
@@ -44,13 +57,14 @@ function handleReviewSubmit(e) {
                 {
                     review: "",
                     baked_good_id: "",
-                    // baked_good_title: "",
-                    user_id: ""
+                    // title: "",
+                    // user_id: ""
                 }
             );
         });
         console.log(addReview.review)
-
+console.log(selectedOption.title)
+console.log(addReview)
 }
 
   return (
@@ -65,21 +79,26 @@ function handleReviewSubmit(e) {
               value={addReview.review}
             onChange={handleChange}
             />
-          <label>Baked Good Title</label>
+          {/* <label>Baked Good Title</label>
           <input
           type="text"
-          name="baked_good_id"
-          value={addReview.baked_good_id}
+          name="baked_good_title"
+          value={addReview.baked_good_title}
           onChange={handleChange}
-          />
+          /> */}
+{/* <select>
+<option value="Power Puffs">Power Puffs</option>
+<option value="Cake">Cake</option>
 
+</select> */}
+<select onChange={handleSelectChange}>{getBakedGood()}</select>
         
          <button type="submit">Add Review</button>
         </form>
       </div>
       <div>
         <h1>{addReview.review}</h1>
-      
+      <h1>{addReview.baked_good_title}</h1>
       </div>
     </div>
   );

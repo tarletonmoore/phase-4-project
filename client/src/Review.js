@@ -29,8 +29,8 @@ function handleDeleteClick() {
   return (
    
             <div>
-             <p>Review: {review.review} - {review.user.username}</p>
-            
+             <p>Review: {review.review} by: {review.user.username}</p>
+            {/* <NewReview handleAddReview={handleAddReview} /> */}
        <button onClick={handleDeleteClick}>Delete</button>
 <EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>
             </div>
