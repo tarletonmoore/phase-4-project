@@ -4,8 +4,8 @@ function NewReview({ user, handleAddReview, bakedGoods }) {
 
   const [addReview, setAddReview] = useState({
     review: "",
-    // baked_good_id: "", 
-    title: "",
+    baked_good_id: "", 
+    // title: "",
     // user_id: ""
   }
     );
@@ -22,7 +22,7 @@ function NewReview({ user, handleAddReview, bakedGoods }) {
 
 function getBakedGood() {
     return bakedGoods.map((bakedgood) => {
-      return <option key={bakedgood.id} value={bakedgood.title}>{bakedgood.title} 
+      return <option key={bakedgood.id} value={bakedgood.id}>{bakedgood.title} 
              </option>;
     });
   }
@@ -31,7 +31,7 @@ function getBakedGood() {
     setSelectedOption(event.target.value);
   }
 
-//   console.log(handleSelectChange)
+  console.log(selectedOption)
 function handleReviewSubmit(e) {
     e.preventDefault()
 
@@ -44,7 +44,8 @@ function handleReviewSubmit(e) {
             {
                 review: addReview.review,
                 // baked_good_id: addReview.baked_good_id,
-                title: selectedOption,
+                baked_good_id: selectedOption,
+                // title: selectedOption,
                 // user_id: user.id
 
             }
@@ -56,14 +57,14 @@ function handleReviewSubmit(e) {
             setAddReview(
                 {
                     review: "",
-                    baked_good_id: "",
-                    // title: "",
+                    baked_good_id: selectedOption,
+                    // title: selectedOption,
                     // user_id: ""
                 }
             );
         });
         console.log(addReview.review)
-console.log(selectedOption.title)
+console.log(selectedOption)
 console.log(addReview)
 }
 
@@ -98,7 +99,8 @@ console.log(addReview)
       </div>
       <div>
         <h1>{addReview.review}</h1>
-      <h1>{addReview.baked_good_title}</h1>
+      <h1>{selectedOption}</h1>
+      <h1>By: {user.username}</h1>
       </div>
     </div>
   );

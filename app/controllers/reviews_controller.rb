@@ -29,10 +29,10 @@ class ReviewsController < ApplicationController
         if current_user
         # if bakedgood
         # byebug
-        bakedgood= BakedGood.find_by(title: params[:title])
+        bakedgood= BakedGood.find_by(id: params[:baked_good_id])
 
-            review = current_user.reviews.create(review: params[:review])
-            # review = current_user.reviews.create(review_params)
+            # review = current_user.reviews.create(review: params[:review])
+            review = current_user.reviews.create(review_params)
 
             # review = bakedgood.reviews.create(review: params[:review])
             if review.valid?
@@ -52,7 +52,6 @@ class ReviewsController < ApplicationController
         # current_baked_good = BakedGood.find_by(id: params[:baked_good_id])
         # review = find_review
 
-        #  if current_user === review
         if current_user 
             review = current_user.reviews.find(params[:id])
         review.update(review_params)
