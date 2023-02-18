@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
             # review = bakedgood.reviews.create(review: params[:review])
             if review.valid?
 
-                render json: review, include: :baked_good, status: :created
+                render json: review, include: [:user, :baked_good], status: :created
             else
                 render json: { errors: [review.errors.full_messages] }, status: :unprocessable_entity
             end

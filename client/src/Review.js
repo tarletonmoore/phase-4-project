@@ -26,12 +26,21 @@ function handleDeleteClick() {
 //     }
 
 // }
+
+function buttonMatch() {
+    if (review.user_id === user.id) {
+       return <button onClick={handleDeleteClick}>Delete</button>
+    }
+}
+console.log(user.username)
   return (
    
             <div>
              <p>Review: {review.review} by: {review.user.username}</p>
             {/* <NewReview handleAddReview={handleAddReview} /> */}
-       <button onClick={handleDeleteClick}>Delete</button>
+            
+       {/* <button onClick={handleDeleteClick}>Delete</button> */}
+       {buttonMatch()}
 <EditReview id={id} review={review} onUpdateReview={onUpdateReview} user={user}/>
             </div>
    

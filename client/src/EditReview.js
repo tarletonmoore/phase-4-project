@@ -15,7 +15,7 @@ function EditReview({ onUpdateReview, id, review, user }) {
             },
             body: JSON.stringify({
                 review: changeReview,
-                user_id: user.id
+                // user_id: user.id
             }),
         })
             .then((r) => r.json())
@@ -24,20 +24,42 @@ function EditReview({ onUpdateReview, id, review, user }) {
         
     }
 
-    return (
-        <form onSubmit={handleFormSubmit}>
+    function updateMatch() {
+        if (review.user_id === user.id) {
+              return   <form onSubmit={handleFormSubmit}>
             <input
                 type="text"
                 name="review"
                  value={changeReview}
-                 onChange={(e) => {if (review.user_id === user.id) {
-                    setChangeReview(e.target.value)}
+                 onChange={(e) => 
+                    setChangeReview(e.target.value)
                 
-                }
-                }
-             />
-             <input type="submit" value="Update" />
-         </form>
+                }/>
+                <input type="submit" value="Update" />
+</form>
+                
+             
+        }
+        }
+    
+
+    return (
+        // <form onSubmit={handleFormSubmit}>
+        //     <input
+        //         type="text"
+        //         name="review"
+        //          value={changeReview}
+        //          onChange={(e) => {if (review.user_id === user.id) {
+        //             setChangeReview(e.target.value)}
+                
+        //         }
+        //         }
+        //      />
+        //      <input type="submit" value="Update" />
+        //  </form>
+       <div>
+        {updateMatch()}
+       </div>
      );
 
 

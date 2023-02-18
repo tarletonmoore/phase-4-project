@@ -97,11 +97,11 @@ console.log(addReview)
          <button type="submit">Add Review</button>
         </form>
       </div>
-      <div>
+      {/* <div>
         <h1>{addReview.review}</h1>
       <h1>{selectedOption}</h1>
       <h1>By: {user.username}</h1>
-      </div>
+      </div> */}
     </div>
   );
 }
