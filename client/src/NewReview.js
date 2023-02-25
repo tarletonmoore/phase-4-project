@@ -11,7 +11,7 @@ function NewReview({ user, handleAddReview, bakedGoods }) {
     );
 
     const [selectedOption, setSelectedOption] = useState();
-
+const [errors, setErrors] = useState([])
 
   function handleChange(event) {
     setAddReview({
@@ -51,9 +51,9 @@ function handleReviewSubmit(e) {
             }
         ),
     })
-        .then((r) => r.json())
-        .then((data) => {
-            handleAddReview(data);
+        // .then((r) => r.json())
+        .then((r) => { if (r.ok) {
+            handleAddReview(r);
             setAddReview(
                 {
                     review: "",
@@ -62,7 +62,10 @@ function handleReviewSubmit(e) {
                     // user_id: ""
                 }
             );
+        }
+        else {r.json().then((errorData) => setErrors(errorData.errors));}
         });
+
         console.log(addReview.review)
 console.log(selectedOption)
 console.log(addReview)
@@ -95,6 +98,15 @@ console.log(addReview)
 <select onChange={handleSelectChange}>{getBakedGood()}</select>
         
          <button type="submit">Add Review</button>
+
+         {errors.length > 0 && (
+    <ul style={{ color: "black" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
+
         </form>
       </div>
       {/* <div>

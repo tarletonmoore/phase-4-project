@@ -5,7 +5,7 @@ function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+const [errors, setErrors] = useState([])
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -19,7 +19,8 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));}
-     
+        else {r.json().then((errorData) => setErrors(errorData.errors));}
+
     });
   }
 
@@ -51,6 +52,14 @@ function LoginForm({ onLogin }) {
         </button>
       </section>
      
+      {errors.length > 0 && (
+    <ul style={{ color: "black" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
+
     </form>
   );
 }

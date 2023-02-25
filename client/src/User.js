@@ -4,12 +4,11 @@ function User({user, setUser}) {
 
 
 
-
 return (
     <div>
 <h2>Name: {user.username}</h2>
             <p>Bio: {user.bio}</p>
-        
+       
 </div>
 
 

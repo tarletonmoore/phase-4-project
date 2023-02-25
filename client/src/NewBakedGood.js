@@ -10,7 +10,7 @@ function NewBakedGood({ user }) {
   );
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-
+const [errors, setErrors] = useState([])
   function handleSubmit(e) {
     
     e.preventDefault();
@@ -29,7 +29,7 @@ function NewBakedGood({ user }) {
       setIsLoading(false);
       if (r.ok) {
         navigate("/bakedgoods");}
-      
+      else {r.json().then((errorData) => setErrors(errorData.errors));}
     });
   }
 
@@ -63,6 +63,14 @@ function NewBakedGood({ user }) {
             </button>
           </section>
          
+          {errors.length > 0 && (
+    <ul style={{ color: "black" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
+
         </form>
       </div>
       <div>
