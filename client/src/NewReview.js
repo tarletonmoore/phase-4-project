@@ -51,9 +51,8 @@ function handleReviewSubmit(e) {
             }
         ),
     })
-        // .then((r) => r.json())
-        .then((r) => { if (r.ok) {
-            handleAddReview(r);
+        .then((r) => {if (r.ok) { r.json().then((data) => { 
+            handleAddReview(data);
             setAddReview(
                 {
                     review: "",
@@ -62,9 +61,23 @@ function handleReviewSubmit(e) {
                     // user_id: ""
                 }
             );
-        }
-        else {r.json().then((errorData) => setErrors(errorData.errors));}
-        });
+        
+        });}
+    else {r.json().then((errorData) => setErrors(errorData.errors));}})
+        // .then((data) => { 
+        //     // if (r.ok) {
+        //     handleAddReview(data);
+        //     setAddReview(
+        //         {
+        //             review: "",
+        //             baked_good_id: selectedOption,
+        //             // title: selectedOption,
+        //             // user_id: ""
+        //         }
+        //     );
+        // // }
+        // // else {r.json().then((errorData) => setErrors(errorData.errors));}
+        // });
 
         console.log(addReview.review)
 console.log(selectedOption)

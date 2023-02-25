@@ -60,7 +60,10 @@ function App() {
 
       setReviews([...reviews, newReview]);
     }
+    function handleAddBakedGood(newBakedGood) {
 
+      setBakedGoods([...bakedGoods, newBakedGood]);
+    }
 
   return (
   
@@ -77,7 +80,9 @@ function App() {
           </Route> 
         
           
-          <Route exact path="/new" element={<NewBakedGood user={user} />}>
+          <Route exact path="/new" element={<NewBakedGood user={user} 
+          onAddBakedGood={handleAddBakedGood} 
+          />}>
             
           </Route>
           <Route exact path="/bakedgoods" element={<BakedGoodList bakedGoods={bakedGoods} setBakedGoods={setBakedGoods} user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview} handleAddReview={handleAddReview}
