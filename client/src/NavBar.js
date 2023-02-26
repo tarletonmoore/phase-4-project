@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import UserContext from "./context/ContextUser";
 
-function NavBar({ user, setUser }) {
+function NavBar(
+  // { user, setUser }
+  ) {
+
+const [user, setUser] = useContext(UserContext)
 
   const linkStyles = {
     width: "25px",

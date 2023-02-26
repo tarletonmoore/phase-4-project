@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import UserContext from "./context/ContextUser";
 
-function User({user, setUser}) {
+function User(
+    // {user, setUser}
+    ) {
 
-
-
+    const [user, setUser] = useContext(UserContext)
+console.log(user.username)
 return (
     <div>
 <h2>Name: {user.username}</h2>

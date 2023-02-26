@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
-function NewBakedGood({ user, onAddBakedGood }) {
+function NewBakedGood({
+  //  user, 
+   onAddBakedGood }) {
 
   // const [title, setTitle] = useState(""
   //   );
@@ -14,7 +16,7 @@ function NewBakedGood({ user, onAddBakedGood }) {
     instructions: "",
 });
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 const [errors, setErrors] = useState([])
 
 function handleChange(event) {
@@ -124,9 +126,9 @@ console.log(errors)
       </div>
       <div>
         {/* <h1>{title}</h1> */}
-        <p>
+        {/* <p>
           <cite>By {user.username}</cite>
-        </p>
+        </p> */}
         {/* <p>{instructions}</p> */}
       </div>
     </div>

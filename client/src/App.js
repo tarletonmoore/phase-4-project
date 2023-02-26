@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css"
 import NavBar from "./NavBar";
@@ -8,11 +8,14 @@ import NewBakedGood from "./NewBakedGood";
 import SignUpForm from "./SignUpForm";
 import NewReview from "./NewReview";
 import User from "./User";
+import UserContext from "./context/ContextUser";
+// import { UserProvider } from "./context/ContextUser";
 
 function App() {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [bakedGoods, setBakedGoods] = useState([]);
+  // const [user, setUser] = useContext(UserContext)
 
 
   useEffect(() => {
@@ -68,14 +71,22 @@ function App() {
   return (
   
     <>
-      <NavBar user={user} setUser={setUser} />
+    <UserContext.Provider value={[user, setUser]}>
+      <NavBar
+      //  user={user} setUser={setUser}
+        />
+
       <main>
       
         <Routes>
-          <Route exact path="/me" element={<User user={user} setUser={setUser}/>}>
+          <Route exact path="/me" element={<User 
+          // user={user} setUser={setUser}
+          />}>
             
           </Route>
-          <Route exact path="/signup" element={<SignUpForm onLogin={setUser}/>}>
+          <Route exact path="/signup" element={<SignUpForm 
+          // onLogin={setUser}
+          />}>
             
           </Route> 
         
@@ -85,15 +96,20 @@ function App() {
           />}>
             
           </Route>
-          <Route exact path="/bakedgoods" element={<BakedGoodList bakedGoods={bakedGoods} setBakedGoods={setBakedGoods} user={user} reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview} handleAddReview={handleAddReview}
+          <Route exact path="/bakedgoods" element={<BakedGoodList bakedGoods={bakedGoods} setBakedGoods={setBakedGoods} 
+          // user={user} 
+          reviews={reviews} setReviews={setReviews} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview} handleAddReview={handleAddReview}
           />}>
             
           </Route>
-          <Route exact path="/reviews" element={<NewReview handleAddReview={handleAddReview} user={user} bakedGoods={bakedGoods}/>}>
+          <Route exact path="/reviews" element={<NewReview handleAddReview={handleAddReview} 
+          // user={user}
+           bakedGoods={bakedGoods}/>}>
 
           </Route>
         </Routes>
       </main>
+      </UserContext.Provider>
     </>
   );
 }

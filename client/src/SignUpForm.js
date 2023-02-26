@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import UserContext from "./context/ContextUser";
 
-function SignUpForm({ onLogin }) {
+function SignUpForm(
+  { onLogin }
+  ) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [bio, setBio] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 const [errors, setErrors] = useState([])
+// const [user, setUser] = useContext(UserContext)
   function handleSubmit(e) {
     
     e.preventDefault();

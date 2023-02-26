@@ -1,11 +1,14 @@
 // import { useEffect, useState } from "react";
-import React from "react";
+import React, { useContext } from "react";
 import EditReview from "./EditReview";
 // import NewReview from "./NewReview";
+import UserContext from "./context/ContextUser";
 
-function Review({review, bakedgood, user, handleAddReview, onUpdateReview, onDeleteReview}) {
+function Review({review, bakedgood,
+    //  user,
+      handleAddReview, onUpdateReview, onDeleteReview}) {
 const {id} = review
-
+const [user, setUser] = useContext(UserContext)
 function handleDeleteClick() {
     fetch(`/reviews/${id}`, {
       method: "DELETE",
