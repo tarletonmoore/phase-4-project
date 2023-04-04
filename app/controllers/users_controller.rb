@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: :create
+    skip_before_action :authorized, only: [:create, :user_reviews]
 def index
   users = User.all
   render json: users, include: :reviews
@@ -25,7 +25,19 @@ end
           render json: { errors: ["Not authorized"] }, status: :unauthorized
         end
       end
-  
+
+
+      # Make a custom post route that sends a parameter of number. Sort through the users and find all users that have more than that number of reviews. Render json of all the users who meet that criteria. If no users meet that criteria send make a message in json saying so.
+
+      def user_reviews
+users = User.all.select {|u| u.reviews.count >= params[:number].to_i}
+if users.count >= params[:number]
+  render json: users
+else
+  render json: {errors: "no matching results"}, status: :unprocessable_entity
+end
+      end
+
     private
 
    

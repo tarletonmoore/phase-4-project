@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
   delete "/reviews", to: "reviews#destroy"
+post "/users/number", to: "users#user_reviews"
   resources :reviews
   # resources :users
   resources :baked_goods

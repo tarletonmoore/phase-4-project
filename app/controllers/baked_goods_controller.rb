@@ -35,6 +35,18 @@ end
       
     end
 
+def review_filter
+bakedgoods = BakedGood.all
+reviews = Review.all
+filteredbakedgoods = bakedgoods.filter {|bg| bg.instructions.length > params[:number].to_i}
+if filteredbakedgoods.length < 1
+    render json: {errors: "no review matches"}
+else
+render json: filteredbakedgoods, include: :reviews
+end
+
+end
+
     # def destroy
     #     current_user = User.find_by(id: session[:user_id])
     #     if current_user
@@ -44,6 +56,7 @@ end
     #     else
     #         render json: {errors: ["Not Authorized"]}, status: :unauthorized
     #   end
+    # end
     
       private
     

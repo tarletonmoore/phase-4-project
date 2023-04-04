@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function EditReview({ onUpdateReview, id, review, user }) {
 
-    const [changeReview, setChangeReview] = useState("");
+    const [changeReview, setChangeReview] = useState(review.review);
 
     function handleFormSubmit(e) {
         e.preventDefault();
