@@ -72,30 +72,6 @@ class ReviewsController < ApplicationController
         end
       end
 
-      def review_limit
-        reviews = Review.all
-       filteredreviews = reviews.filter {|r| r.review.length <= params[:number].to_i}
-       if filteredreviews.length < 1
-        render json: {errors: "review not found"}
-       else
-       render json: filteredreviews
-       end
-  
-
-      end
-
-      def review_max_min
-        # byebug
-reviews = Review.all
-rangereviews = reviews.filter {|r| r.review.length <= params[:max].to_i && r.review.length >= params[:min].to_i}
-if rangereviews.length > 0 
-# render json: {key1: params[:max], key2: params[:min]}
-render json: rangereviews
-# render json: params, except: [:controller, :action]
-else
-    render json: {errors: "Try again 🤷"}
-end
-      end
 
       def search
         reviews = Review.all
